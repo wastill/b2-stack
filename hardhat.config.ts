@@ -1,4 +1,4 @@
-import { HardhatUserConfig } from "hardhat/config";
+import { type HardhatUserConfig, extendEnvironment, task } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "@nomicfoundation/hardhat-foundry";
 
@@ -8,3 +8,12 @@ const config: HardhatUserConfig = {
 };
 
 export default config;
+
+extendEnvironment((hre) => {
+  hre.hi = "Hello Hardhat!";
+})
+
+task("envtest", async (args, hre) => {
+  console.log(hre.hi);
+})
+

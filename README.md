@@ -33,3 +33,6 @@ npx hardhat ignition deploy ./ignition/modules/Lock.ts --network localhost
 npm install --global hardhat-shorthand
 命令行提示:
 hardhat-completion install
+
+mocha:
+npm install --save-dev mocha
