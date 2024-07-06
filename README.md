@@ -1,9 +1,9 @@
 # Hello B2-Stake
 
-
 ## Command
 
 ## solidity 版本管理工具
+
 安装:
 pip3 install solc-select==0.2.
 列出所有版本
@@ -12,7 +12,8 @@ solc-select install
 solc-select install 0.4.26
 使用指定版本
 solc-select use 0.4.26
-hardhat工具:
+
+## hardhat工具
 
 初始化:
 npx hardhat init
