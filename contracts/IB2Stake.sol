@@ -21,6 +21,43 @@ interface IB2Stake {
      */
     function UnStake(uint256 _pid, uint256 _amount) external;
 
+    /**
+     * ##### 2.3 领取奖励
+     * - **输入参数**: 池 ID(_pid)。
+     * - **前置条件**: 有可领取的奖励。
+     * - **后置条件**: 用户领取其奖励，清除已领取的奖励记录。
+     * - **异常处理**: 如果没有可领取的奖励，不执行任何操作。
+     */
+    function WithDraw(uint256 _pid) external;
+
+    /** 
+     * ##### 2.4 添加和更新质押池
+     * - **输入参数**: 质押代币地址(_stTokenAddress)，池权重(_poolWeight)，最小质押金额(_minDepositAmount)，解除质押锁定区(_unstakeLockedBlocks)。
+     * - **前置条件**: 只有管理员可操作。
+     * - **后置条件**: 创建新的质押池或更新现有池的配置。
+     * - **异常处理**: 权限验证失败或输入数据验证失败。
+     */
+    function AddPool(address _stTokenAddress, uint256 _poolWeight, uint256 _minDepositAmount, uint256 _unstakeLockedBlocks) external;
+
+    /**
+     * ##### 2.5 设置质押池权重
+     * - **输入参数**: 池 ID(_pid)，新的权重(_poolWeight)。
+     * - **前置条件**: 只有管理员可操作。
+     * - **后置条件**: 更新池的权重。
+     * - **异常处理**: 权限验证失败或输入数据验证失败。
+     */
+    function SetPoolWeight(uint256 _pid, uint256 _poolWeight) external;
+
+    /**
+     * ##### 2.6 设置质押池最小质押金额
+     * - **输入参数**: 池 ID(_pid)，新的最小质押金额(_minDepositAmount)。
+     * - **前置条件**: 只有管理员可操作。
+     * - **后置条件**: 更新池的最小质押金额。
+     * - **异常处理**: 权限验证失败或输入数据验证失败。
+     */
+    function SetPoolMinDepositAmount(uint256 _pid, uint256 _minDepositAmount) external;
+
+    
     
     
 }

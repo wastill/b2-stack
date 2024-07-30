@@ -36,3 +36,5 @@ hardhat-completion install
 
 mocha:
 npm install --save-dev mocha
+
+hh console 可以使用控制台操作
